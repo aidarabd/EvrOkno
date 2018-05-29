@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:th="http://www.thymeleaf.org"
+            xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+            xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" th:href="@{css/normalize.css}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" th:href="@{css/order.css}">
+
+        
+    </head>
+    <body>
+
+      <form action="/makeOrderPage/makeOrder" method="post">
+      
+        <h1>Детали заказа</h1>
+        
+        <fieldset>
+          <legend><span class="number">1</span>Основные параметры</legend>
+          <label for="name">Т-номер</label>
+          <input type="text" id="name" name="phone_num" required>
+          
+          <label for="mail">длина:</label>
+          <input type="number" id="mail" name="vertical" required>
+          
+          <label for="password">высота:</label>
+          <input type="number" id="password" name="horizontal" required>
+          
+          <label>подоконники:</label>
+          <input type="radio" id="under_13" value="yes" name="podokonnik" required><label for="under_13" class="light">да</label><br>
+          <input type="radio" id="over_13" value="no" name="podokonnik" required><label for="over_13" class="light">нет</label>
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Допольнительно</legend>
+          <label for="bio">Доп. детали (не обязательно)</label>
+          <textarea id="bio" name="additional"></textarea>
+        </fieldset>
+        <fieldset>
+        <label for="job">тип профиля:</label>
+        <select id="job" name="prof_type">
+          <optgroup label="турецкий">
+            <option value="frontend_developer">Front-End Developer</option>
+            <option value="php_developor">PHP Developer</option>
+            <option value="python_developer">Python Developer</option>
+            <option value="rails_developer"> Rails Developer</option>
+            <option value="web_designer">Web Designer</option>
+            <option value="WordPress_developer">WordPress Developer</option>
+          </optgroup>
+          <optgroup label="европейский">
+            <option value="Android_developer">Androild Developer</option>
+            <option value="iOS_developer">iOS Developer</option>
+            <option value="mobile_designer">Mobile Designer</option>
+          </optgroup>
+          <optgroup label="китайский">
+            <option value="business_owner">Business Owner</option>
+            <option value="freelancer">Freelancer</option>
+          </optgroup>
+          <optgroup label="другое">
+            <option value="secretary">Secretary</option>
+            <option value="maintenance">Maintenance</option>
+          </optgroup>
+        </select>
+        
+          <label>цвет:</label>
+          <input type="radio" id="development" value="interest_development" name="color" required><label class="light" for="development">Development</label><br>
+          <input type="radio" id="design" value="белый" name="color" required><label class="light" for="design">белый</label><br>
+          <input type="radio" id="business" value="коричневый" name="color" required><label class="light" for="business">коричневый</label>
+        
+        </fieldset>
+
+        <label for="password">количество:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <button type="submit">Остваить заявку</button>
+
+      </form>
+
+      <button type="calculate">Посчитать примерную цену</button>
+    </body>
+</html>
